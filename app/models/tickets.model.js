@@ -5,10 +5,10 @@ var Schema = mongoose.Schema;
 var ticketSchema = new Schema({
     createdBy: String,
     description: String,
-    severity: number,
+    severity: Number,
     status: String,
     cancelledReason: String,
     cancelledOtherDescription: String,
-    comments: String
+    comment: String
 });
- mongoose.exports = mongoose.model('Ticket', ticketSchema);
+ module.exports = mongoose.model('Ticket', ticketSchema);
