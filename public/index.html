@@ -7,16 +7,46 @@
 <!--------bower scripts---->
 
   <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src= "bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+  </script>
 
 <!--custom scripts-->
 
   <script src="app.js"></script>
+  <script src= "app.route.js"></script>
+  <script src= "controllers/homeCtrl.js"></script>
+  <script src= "controllers/createTicketCtrl.js"></script>
 
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   </head>
-  <body ng-app="ticksys">
+  <body ng-app="ticksys" ng-controller = "homeCtrl as vm">
 
-    {{2+2}}
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="/">Ticket Management System</a>
+            </div>
+
+           <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="home"><i class="fa fa-home"></i> All Tickets</a></li>
+                <li><a ui-sref="createTicket"><i class="fa fa-shield"></i> Create Tickets</a></li>
+            </ul>
+       </nav>
+    </header>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+   <main>
+        <div id="content-views">
+            <div ui-view></div>
+        </div>
+    </main>
 
   </body>
 </html>

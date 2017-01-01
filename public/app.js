@@ -1,1 +1,1 @@
-angular.module("ticksys", []);
+angular.module("ticksys", ['homeCtrl', 'createTicketCtrl', 'frontRoutes', 'ngAnimate']);
