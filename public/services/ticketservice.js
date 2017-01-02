@@ -7,6 +7,7 @@ angular.module('ticketService',[])
       return $http.get('/api/tickets/');
     };
     ticketFactory.create = function(ticketData){
+      // debugger;
       return $http.post('/api/tickets/', ticketData);
     };
 

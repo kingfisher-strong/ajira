@@ -4,13 +4,13 @@ angular.module('createTicketCtrl', [])
   function createTicketCtrl(ticketService){
       var vm = this;
 
-      vm.formDataHolder = {};
+      //vm.formDataHolder = {};
 
       vm.submitForm = function(){
-        ticketService.create(vm.formDataHolder)
+        // debugger;
+        ticketService.create(vm.ticket)
           .success(function() {
             console.log("ticket created successfully");
-            console.log(vm.formDataHolder.createdBy);
           });
       }
   }
