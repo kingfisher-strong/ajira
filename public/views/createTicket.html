@@ -1,4 +1,48 @@
 <div class="jumbotron text-center">
 
-{{vm.message}}
+  <h2>Create Ticket</h2>
+  <form name="ticketForm" ng-submit="vm.submitForm()">
+    <div class="form-group">
+      <label for="createdBy">Name:</label>
+      <input type="text" class="form-control" id="createdBy" placeholder="Enter Your Name" ng-model = "vm.ticket.createdBy">
+    </div>
+    <div>
+      <label for="severity">Severity:</label>
+      <input type="text" class="form-control" id="severity" placeholder="Severity" ng-model="vm.ticket.severity">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" id="description" placeholder="Description" ng-model-="vm.ticket.description">
+    </div>
+    <div>
+      Status:
+      <label for="completed">Completed</label>
+
+      <input type="radio" class="form-control" id="status" name="status" value="completed" ng-model="vm.ticket.status"><br />
+
+      <label for="cancelled">Cancelled</label>
+      <input type="radio" class="form-control" id="status" name="status" value="cancelled" ng-model="vm.ticket.status">
+    </div>
+    <div ng-show="vm.ticket.status == 'completed'">
+      <label for="comment">Comments:</label>
+      <input type="text" class="form-control" id="comment" placeholder="Comments" ng-model="vm.ticket.comment">
+    </div>
+    <div ng-show="vm.ticket.status =='cancelled'">
+      Cancelled Reason:
+      <label for="CancelledReasonEnduser">End User:</label>
+      <input type="radio" class="form-control" id="cancelledReason" value="enduser" ng-model="vm.ticket.cancelledReason">
+
+      <label for="CancelledReasonEnduser">Other:</label>
+      <input type="radio" class="form-control" id="cancelledReason" value="other" ng-model="vm.ticket.cancelledReason">
+    </div>
+    <div ng-show="vm.ticket.cancelledReason == 'other' || staus == !'completed'">
+      <label for="cancelledOtherReason"> Other Reason for Cancellation: </label>
+      <input type="text" class="form-control" id="cancelledOtherReason" name="cancelledOtherReason" value="cancelledOtherReason" ng-model="vm.ticket.cancelledOtherReason">
+
+
+    <label for="cancelledOtherDescriptio"> Other Reason for Cancellation: </label>
+    <input type="text" class="form-control" id="cancelledOtherDescriptio" name="cancelledOtherDescription" value="cancelledOtherDescription" ng-model="vm.ticket.cancelledOtherDescription">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 </div>

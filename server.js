@@ -35,15 +35,16 @@ router.get('/', function(req, res, next){
 
 router.route('/tickets')
   .post(function (req, res){
-    var ticket = new Ticket({
-      createdBy: req.body.createdBy,
-      severity: req.body.severity,
-      status: req.body.status,
-      cancelledReason: req.body.cancelledReason,
-      cancelledOtherDescription: req.body.cancelledOtherDescription,
-      comment: req.body.comment,
-      description: req.body.description
-    });
+    var ticket = new Ticket();
+
+      ticket.createdBy =  req.body.createdBy;
+      ticket.severity = req.body.severity;
+      ticket.status = req.body.status;
+      ticket.cancelledReason = req.body.cancelledReason;
+      ticket.cancelledOtherDescription = req.body.cancelledOtherDescription;
+      ticket.comment = req.body.comment;
+      ticket.description = req.body.description;
+
 
     ticket.save(function(err){
       if(err){
@@ -52,7 +53,8 @@ router.route('/tickets')
       }
       res.json({"message":"Ticket created"});
     });
-  })
+    })
+
 
   .get(function(req, res){
     Ticket.find(function(err,tickets){

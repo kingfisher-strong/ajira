@@ -1,4 +1,24 @@
 <div class="jumbotron text-center">
+  <div class="container">
+      <h2>All Tickets</h2>
 
-{{vm.message}}
+      <table class="table table-striped">
+            <thead style="align:center;">
+            <tr>
+                <th>Created By</th>
+                <th>Description</th>
+                <th>Severity</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ticket in vm.tickets">
+                <td>{{ticket.createdBy}}</td>
+                <td>{{ticket.description}}</td>
+                <td>{{ticket.severity}}</td>
+                <td>{{ticket.status}}</td>
+            </tr>
+            </tbody>
+        </table>
+  </div>
 </div>
